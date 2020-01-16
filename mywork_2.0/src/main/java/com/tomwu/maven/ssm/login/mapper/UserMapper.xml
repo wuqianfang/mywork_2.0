@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomwu.maven.ssm.login.dao.IUserDao">
+    <resultMap id="BaseResultMap" type="com.tomwu.maven.ssm.login.entity.User">
+        <result column="id" property="id" jdbcType="INTEGER" />
+        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="INTEGER" />
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
+ 
+    </resultMap>
+ 
+ 
+    <!--查根据 name与password -->
+    <select id="selectAll" parameterType="java.util.Map" resultType="com.tomwu.maven.ssm.login.entity.User">
+        SELECT * FROM u_user
+        <if test="#{BaseResultMap!=null}">
+        	<where>
+        		<if test="id!=null">
+        			and id=#{id}
+        		</if>
+        		<if test="username!=null">
+        			and username = #{username}
+        		</if>
+        		<if test="password!=null">
+        			and password = #{password}
+        		</if>
+        		<if test="email!=null">
+        			and email = #{email}
+        		</if>  
+        		<if test="status!=null">
+        			and status = #{status}
+        		</if> 
+        		<if test="phone!=null">
+        			and phone = #{phone}
+        		</if>         		         		        		
+        	</where>
+        </if>
+    </select>
+    
+     
+    <!--查根据 name -->
+<!--     <select id="login" parameterType="java.long.String" resultType="com.ssm.entity.User"> -->
+<!--         SELECT * FROM u_user -->
+<!--         WHERE -->
+<!--         username=#{username,jdbcType=VARCHAR} -->
+<!--     </select> -->
+    
+    <!--  -->
+<!--     <select id="selectUser" resultType="com.ssm.entity.User"> -->
+<!--     	 SELECT * FROM u_user -->
+<!--     </select> -->
+    
+ 	<!-- updata更改 -->
+ 	<update id="updateUser"  parameterType="com.tomwu.maven.ssm.login.entity.User">
+ 		UPDATE 
+ 		u_user 
+ 		SET 
+ 		username=#{username},
+ 		password=#{password},
+ 		email=#{email},
+        createTime=#{createTime},
+        lastLoginTime=#{lastLoginTime},
+        status=#{status},
+        phone=#{phone} 
+        WHERE 
+        id=#{id}
+	</update>
+	
+	<!-- 插入数据 -->
+	 <insert id="addUser" parameterType="com.tomwu.maven.ssm.login.entity.User">
+        INSERT INTO u_user (username,password,email,create_Time,last_Login_Time,status,phone) 
+        VALUES (#{username},#{password},#{email},#{createTime},#{lastLoginTime},#{status},#{phone})
+    </insert>
+    
+    
+     <delete id="deleteUser" parameterType="java.lang.Integer">
+        DELETE FROM u_user WHERE id=#{id}
+    </delete>
+	
+</mapper>
