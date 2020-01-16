@@ -2,12 +2,14 @@
     xmlns="http://xmlns.jcp.org/xml/ns/javaee"  
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-    http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+    http://xmlns.jcp.org/xml/ns/javaee/web-app.xsd"
      metadata-complete="true">
      <!-- 当你使用编辑器编辑该文档的时候，在title处需要显示的名称。你可以改变这个名字，然后用编辑器分别打开，可以看到title的变化 -->
   <display-name>Archetype Created Web Application</display-name>
-
-  
+	<!-- /mywork_2.0/src/main/webapp/WEB-INF/jsp/login/Login.jsp -->
+      <welcome-file-list>
+        <welcome-file>/WEB-INF/jsp/login/Login.jsp</welcome-file>
+    </welcome-file-list>
   
       <!-- 加载spring bean -->
     <context-param>

@@ -35,7 +35,6 @@ public class LoginController{
      */
     @RequestMapping("/login")
     public ModelAndView login(HttpServletRequest req, ModelAndView mv) {
-//    	AnnotationMethodHandlerAdapter
             mv.setViewName("user/login");
         return mv;
     }
@@ -60,7 +59,7 @@ public class LoginController{
           //把用户对象数据保存在session域对象中
           session.setMaxInactiveInterval(30*60);//(秒)
           session.setAttribute("LOGIN_USER", user.get(0));
-            mv.setViewName("user/index");
+            mv.setViewName("function/index");
             mv.addObject("name",user.get(0));
         } else {//登录失败回到登录页面
             mv.addObject("message","用户名或密码输入错误,请重新输入");
