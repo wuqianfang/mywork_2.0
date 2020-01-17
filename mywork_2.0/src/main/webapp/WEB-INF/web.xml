@@ -39,15 +39,15 @@
 <!-- 	</filter-mapping> -->
  
 	<!-- 使用filter实现登录控制 -->
-<!-- 	<filter> -->
-<!-- 		<filter-name>SessionFilter</filter-name> -->
-<!-- 		<filter-class>com.tomwu.bookstore.filter.LoginFilter</filter-class> -->
-<!-- 	</filter> -->
-<!-- 	<filter-mapping> -->
-<!-- 		<filter-name>SessionFilter</filter-name> -->
-		<!-- 所有的管理页面需要登录后才能访问 -->
-<!-- 		<url-pattern>/views/*</url-pattern> -->
-<!-- 	</filter-mapping> -->
+	<filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>com.tomwu.maven.ssm.bookstore.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+<!-- 		所有的function功能需要登录后才能访问 -->
+		<url-pattern>/function/*</url-pattern>
+	</filter-mapping>
  
  
  <!--     Spring MVC servlet -->

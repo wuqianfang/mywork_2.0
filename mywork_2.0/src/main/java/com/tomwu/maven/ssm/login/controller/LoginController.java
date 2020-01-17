@@ -33,9 +33,9 @@ public class LoginController{
      * @param mv
      * @return
      */
-    @RequestMapping("/login")
+    @RequestMapping("/Login")
     public ModelAndView login(HttpServletRequest req, ModelAndView mv) {
-            mv.setViewName("user/login");
+            mv.setViewName("/login/Login");
         return mv;
     }
 	
